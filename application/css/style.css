@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+input[type="text"] {
+    color: #90908c;
+}
+
+#content {
+    width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #90908c;
+}
+
+.header .nav {
+    width: 100%;
+}
+
+.header .nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.header .nav ul li {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.block-employees {
+    margin-bottom: 40px;
+}
+
+.btn-add-employees {
+    float: right;
+    width: 190px;
+    height: 40px;
+    padding: 5px;
+    color: #0c78d4;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #0c78d4;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.btn-add-employees:hover {
+    background-color: #0c78d4;
+    color: #fff;
+    transform: scale(0.97);
+}
+
+.elements-person {
+    width: 300px;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #c9c9c9;
+}
+
+.text-elements {
+    color: #90908c;
+}
+
+.block-control {
+    padding-top: 20px;
+}
+
+.block-control .control {
+    color: #0c78d4;
+    margin-right: 15px;
+}
+
+.login-link a {
+    color: #0c78d4;
+}
+
+
+.logout a, #dismiss, #dismissal-element {
+    color: #cd2929;
+}
+
+#active-element {
+    color: #11bf17;
+}
+
+/* style auth.php */
+
+.form-auth, .form-add-employee, .form-edit-data {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.element-auth, .element-add, .select-role {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    margin: 12px 0 12px 0;
+    border-radius: 6px;
+    border: 1px solid #0c78d4;
+    outline: none;
+    transition: box-shadow .25s;
+}
+
+.element-auth:focus, .element-add:focus {
+    box-shadow: 0 0 1px 3px #66a4d9;
+}
+
+.form-auth button, .form-add-employee button {
+    width: 130px;
+    height: 35px;
+    padding: 5px;
+    color: #0c78d4;
+    font-size: 16px;
+    border: 1px solid #0c78d4;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+/* change_user_data.php */
+.form-edit-data button {
+    width: 140px;
+    height: 45px;
+    padding: 5px;
+    font-size: 16px;
+    color: #0c78d4;
+    border-radius: 6px;
+    border: 1px solid #0c78d4;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.form-auth button:hover, .form-add-employee button:hover, .form-edit-data button:hover {
+    background-color: #0c78d4;
+    color: #fff;
+    transform: scale(0.97);
+}
