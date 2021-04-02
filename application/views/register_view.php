@@ -1,5 +1,5 @@
 <?php
-$link=mysqli_connect('localhost', 'mysql_user', 'mysql_password', 'testtable');
+$link=mysqli_connect('localhost', 'root', '', 'testtable');
 
 if(isset($_POST['submit']))
 {
@@ -39,10 +39,11 @@ if(isset($_POST['submit']))
         }
     }
 }
+    
 ?>
 
 <form method="POST">
     Логин <input name="login" type="text" required><br>
     Пароль <input name="password" type="password" required><br>
-    <input name="submit" type="submit" value="Зарегистрироваться">
+     <input name="submit" type="submit" value="Зарегистрироваться">
 </form>
