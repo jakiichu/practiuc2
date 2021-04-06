@@ -1,4 +1,4 @@
-<?
+<?php
 // Страница авторизации
 
 // Функция для генерации случайной строки
@@ -13,14 +13,14 @@ function generateCode($length=6) {
 }
 
 // Соединямся с БД
-$link=mysqli_connect("localhost", "mysql_user", "mysql_password", "testtable");
+$link=mysqli_connect('localhost', 'root', '', 'testtable');
 
 if(isset($_POST['submit']))
 {
     // Вытаскиваем из БД запись, у которой логин равняеться введенному
     $query = mysqli_query($link,"SELECT user_id, user_password FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
     $data = mysqli_fetch_assoc($query);
-
+    
     // Сравниваем пароли
     if($data['user_password'] === md5(md5($_POST['password'])))
     {
@@ -40,9 +40,9 @@ if(isset($_POST['submit']))
         // Ставим куки
         setcookie("id", $data['user_id'], time()+60*60*24*30, "/");
         setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
-
         // Переадресовываем браузер на страницу проверки нашего скрипта
-        header("Location: check.php"); exit();
+        header("Location: http://localhost:4430/check"); 
+        exit();
     }
     else
     {
@@ -55,4 +55,5 @@ if(isset($_POST['submit']))
     Пароль <input name="password" type="password" required><br>
     Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip"><br>
     <input name="submit" type="submit" value="Войти">
+    
 </form>

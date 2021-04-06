@@ -22,15 +22,78 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/portfolio">Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/add">add</a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Features</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/register">reg</a>
+                                <?php
+                                $link = mysqli_connect('localhost', 'root', '', 'testtable');
+                                if (isset($_COOKIE['id'])) {
+                                    $query = mysqli_query($link, "SELECT *,INET_NTOA(user_ip) AS user_ip FROM users WHERE user_id = '" . intval($_COOKIE['id']) . "' LIMIT 1");
+                                    $userdata = mysqli_fetch_assoc($query);
+                                }
+
+                                if(isset($userdata['user_login'])){
+                                    if ($userdata['user_login'] == "zxc") {
+
+                                        print_r('<a class="nav-link active" aria-current="page" href="/admin">admin</a>');
+                                    }
+                                }
+                                
+                                ?>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/login">login</a>
+                                <?php
+                                $link = mysqli_connect('localhost', 'root', '', 'testtable');
+                                if (!isset($_COOKIE['id'])) {
+                                    print_r('<a class="nav-link active" aria-current="page" href="/register">reg</a>');
+                                }
+                                ?>
+                            </li>
+
+                            <li class="nav-item">
+                                <?php
+                                $link = mysqli_connect('localhost', 'root', '', 'testtable');
+                                if (!isset($_COOKIE['id'])) {
+                                    print_r('<a class="nav-link active" aria-current="page" href="/login">login</a>');
+                                }
+
+
+                                ?>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <?php
+                                $link = mysqli_connect('localhost', 'root', '', 'testtable');
+                                if (isset($_COOKIE['id'])) {
+                                    print_r('<a class="nav-link active" aria-current="page" href="/logout">logout</a>');
+                                }
+
+
+                                ?>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <?php
+                                $link = mysqli_connect('localhost', 'root', '', 'testtable');
+                                if (isset($_COOKIE['id'])) {
+                                    $query = mysqli_query($link, "SELECT *,INET_NTOA(user_ip) AS user_ip FROM users WHERE user_id = '" . intval($_COOKIE['id']) . "' LIMIT 1");
+                                    $userdata = mysqli_fetch_assoc($query);
+                                }
+
+
+                                if (isset($userdata['user_login'])) {
+
+                                    print("Дарова " . $userdata['user_login']);
+                                }
+                                ?>
                             </li>
                         </ul>
                     </div>

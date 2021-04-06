@@ -28,7 +28,8 @@ if(isset($_POST['submit']))
         $password = md5(md5(trim($_POST['password'])));
 
         mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
-        header("Location: login.php"); exit();
+        header("Location: http://localhost:4430/login/");
+        exit();
     }
     else
     {
@@ -38,6 +39,7 @@ if(isset($_POST['submit']))
             print $error."<br>";
         }
     }
+    
 }
     
 ?>

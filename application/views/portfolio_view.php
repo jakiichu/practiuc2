@@ -2,24 +2,26 @@
     <h1 class="mt-3">Портфолио</h1>
     <table class="table">
         <thead>
-        <tr>
-            <th>Год</th>
-            <th>Проект</th>
-            <th>Описание</th>
-        </tr>
+            <tr>
+                <th>Год</th>
+                <th>Проект</th>
+                <th>Описание</th>
+            </tr>
         </thead>
-    <?php
+        <?php
+        $link = mysqli_connect('localhost', 'root', '', 'mydatabase');
+        $sql = mysqli_query($link, 'SELECT * FROM `portfolio`');
+        while ($result = mysqli_fetch_array($sql)) {
 
-    foreach ($data as $row) {
         ?>
             <tr>
-                <td><?= $row['Year'] ?></td>
-                <td><?= $row['Site'] ?></td>
-                <td><?= $row['Description'] ?></td>
+                <td><?= $result['name'] ?></td>
+                <td><?= $result['Site'] ?></td>
+                <td><?= $result['Description'] ?></td>
             </tr>
         <?php
-    }
-    ?>
+        }
+        ?>
         </tbody>
     </table>
 </div>
